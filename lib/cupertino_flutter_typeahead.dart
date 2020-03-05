@@ -574,9 +574,11 @@ class _CupertinoTypeAheadFieldState<T> extends State<CupertinoTypeAheadField<T>>
       this._focusNode = FocusNode();
     }
 
-    this._suggestionsBox = _CupertinoSuggestionsBox(context, widget.direction, widget.autoFlipDirection);
+    this._suggestionsBox = _CupertinoSuggestionsBox(
+        context, widget.direction, widget.autoFlipDirection);
     widget.suggestionsBoxController?._suggestionsBox = this._suggestionsBox;
-    widget.suggestionsBoxController?._effectiveFocusNode = this._effectiveFocusNode;
+    widget.suggestionsBoxController?._effectiveFocusNode =
+        this._effectiveFocusNode;
 
     this._focusNodeListener = () {
       if (_effectiveFocusNode.hasFocus) {
@@ -1105,14 +1107,13 @@ class CupertinoSuggestionsBoxDecoration {
   final double offsetX;
 
   /// Creates a [CupertinoSuggestionsBoxDecoration]
-  const CupertinoSuggestionsBoxDecoration({
-    this.hasScrollbar: true,
-    this.constraints,
-    this.color,
-    this.border,
-    this.borderRadius,
-    this.offsetX: 0.0
-  });
+  const CupertinoSuggestionsBoxDecoration(
+      {this.hasScrollbar: true,
+      this.constraints,
+      this.color,
+      this.border,
+      this.borderRadius,
+      this.offsetX: 0.0});
 }
 
 /// Supply an instance of this class to the [TypeAhead.textFieldConfiguration]
@@ -1493,9 +1494,9 @@ class CupertinoSuggestionsBoxController {
   /// Opens the suggestions box if closed and vice-versa
   void toggle() {
     if (_suggestionsBox.isOpened) {
-      close();
+      this._suggestionsBox.close();
     } else {
-      open();
+      this._suggestionsBox.open();
     }
   }
 

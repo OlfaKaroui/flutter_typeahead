@@ -1765,11 +1765,7 @@ class SuggestionsBoxController {
 
   /// Opens the suggestions box if closed and vice-versa
   void toggle() {
-    if (_suggestionsBox.isOpened) {
-      this._suggestionsBox.close();
-    } else {
-      this._suggestionsBox.open();
-    }
+    _suggestionsBox.toggle();
   }
 
   /// Recalculates the height of the suggestions box
